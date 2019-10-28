@@ -62,7 +62,7 @@ class War {
     };
     vikingAttack () {
         let saxIndex = [Math.floor(Math.random()*this.saxonArmy.length)];
-        let vikIndex = [Math.floor(Math.random()*this.vikArmy.length)];
+        let vikIndex = [Math.floor(Math.random()*this.vikingArmy.length)];
         let randomSax = this.saxonArmy[saxIndex];
         let randomVik = this.vikingArmy[vikIndex];
         randomSax.receiveDamage(randomVik.strength);
@@ -73,14 +73,15 @@ class War {
         };
     saxonAttack () {
         let saxIndex = [Math.floor(Math.random()*this.saxonArmy.length)];
-        let vikIndex = [Math.floor(Math.random()*this.vikArmy.length)];
+        let vikIndex = [Math.floor(Math.random()*this.vikingArmy.length)];
         let randomSax = this.saxonArmy[saxIndex];
         let randomVik = this.vikingArmy[vikIndex];
-        randomSax.receiveDamage(randomVik.strength);
+        randomVik.receiveDamage(randomSax.strength);
         if (randomSax.health <= 0){
-            this.saxonArmy.splice(saxIndex, 1)
-            return 'A Saxon has died in combat'
+            this.vikingArmy.splice(vikIndex, 1)
+            return `${randomVik.name} has died in combat`
         }
+        return `${randomVik.name} has received ${randomSax.strength} points of damage`
         };
     };
 //     showStatus(){
