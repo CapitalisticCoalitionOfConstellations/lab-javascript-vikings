@@ -54,13 +54,36 @@ class War {
         this.saxonArmy = [];
     }
 
-    addViking(Viking){
-       this.vikingArmy.push(Viking)
+    addViking(viking){
+       this.vikingArmy.push(viking)
     };
-    addSaxon(Saxon){
-        this.saxonArmy.push(Saxon)
+    addSaxon(saxon){
+        this.saxonArmy.push(saxon)
     };
-    vikingAttack(){};
-    saxonAttack(){};
-    showStatus(){};
-}
+    vikingAttack () {
+        let saxIndex = [Math.floor(Math.random()*this.saxonArmy.length)];
+        let vikIndex = [Math.floor(Math.random()*this.vikArmy.length)];
+        let randomSax = this.saxonArmy[saxIndex];
+        let randomVik = this.vikingArmy[vikIndex];
+        randomSax.receiveDamage(randomVik.strength);
+        if (randomSax.health <= 0){
+            this.saxonArmy.splice(saxIndex, 1)
+            return 'A Saxon has died in combat'
+        }
+        };
+    saxonAttack () {
+        let saxIndex = [Math.floor(Math.random()*this.saxonArmy.length)];
+        let vikIndex = [Math.floor(Math.random()*this.vikArmy.length)];
+        let randomSax = this.saxonArmy[saxIndex];
+        let randomVik = this.vikingArmy[vikIndex];
+        randomSax.receiveDamage(randomVik.strength);
+        if (randomSax.health <= 0){
+            this.saxonArmy.splice(saxIndex, 1)
+            return 'A Saxon has died in combat'
+        }
+        };
+    };
+//     showStatus(){
+//         if this 
+//     };
+// }
