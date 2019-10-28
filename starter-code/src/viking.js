@@ -54,54 +54,43 @@ class War {
         this.saxonArmy = [];
     }
 
-<<<<<<< HEAD
-    addViking(Viking) {
-        this.vikingArmy.push(Viking);
+    addViking(viking) {
+        this.vikingArmy.push(viking);
     }
-    addSaxon(Saxon) {
-        this.saxonArmy.push(Saxon);
+    addSaxon(saxon) {
+        this.saxonArmy.push(saxon);
     }
     vikingAttack() {
-        this.saxonArmy[0].receiveDamage(this.vikingArmy[0].attack());
-        if (this.saxonArmy[0].health < 0) {
-            this.saxonArmy[0].pop;
+        let saxIndex = [Math.floor(Math.random() * this.saxonArmy.length)];
+        let vikIndex = [Math.floor(Math.random() * this.vikingArmy.length)];
+        let randomSax = this.saxonArmy[saxIndex];
+        let randomVik = this.vikingArmy[vikIndex];
+        randomSax.receiveDamage(randomVik.strength);
+        if (randomSax.health <= 0) {
+            this.saxonArmy.splice(saxIndex, 1);
+            return 'A Saxon has died in combat';
         }
     }
-    saxonAttack() {}
-    showStatus() {}
+    saxonAttack() {
+        let saxIndex = [Math.floor(Math.random() * this.saxonArmy.length)];
+        let vikIndex = [Math.floor(Math.random() * this.vikingArmy.length)];
+        let randomSax = this.saxonArmy[saxIndex];
+        let randomVik = this.vikingArmy[vikIndex];
+        randomVik.receiveDamage(randomSax.strength);
+        if (randomVik.health <= 0) {
+            this.vikingArmy.splice(vikIndex, 1);
+            return `${randomVik.name} has died in combat`;
+        }
+        return `${randomVik.name} has received ${randomSax.strength} points of damage`;
+    }
+    showStatus() {
+        if (this.saxonArmy.length <= 0) {
+            return 'Vikings have won the war of the century!';
+        } else if (this.vikingArmy.length <= 0) {
+            return 'Saxons have fought for their lives and survived another day...';
+        } else {
+            return 'Vikings and Saxons are still in the thick of battle.';
+        }
+    }
 }
-=======
-    addViking(viking){
-       this.vikingArmy.push(viking)
-    };
-    addSaxon(saxon){
-        this.saxonArmy.push(saxon)
-    };
-    vikingAttack () {
-        let saxIndex = [Math.floor(Math.random()*this.saxonArmy.length)];
-        let vikIndex = [Math.floor(Math.random()*this.vikArmy.length)];
-        let randomSax = this.saxonArmy[saxIndex];
-        let randomVik = this.vikingArmy[vikIndex];
-        randomSax.receiveDamage(randomVik.strength);
-        if (randomSax.health <= 0){
-            this.saxonArmy.splice(saxIndex, 1)
-            return 'A Saxon has died in combat'
-        }
-        };
-    saxonAttack () {
-        let saxIndex = [Math.floor(Math.random()*this.saxonArmy.length)];
-        let vikIndex = [Math.floor(Math.random()*this.vikArmy.length)];
-        let randomSax = this.saxonArmy[saxIndex];
-        let randomVik = this.vikingArmy[vikIndex];
-        randomSax.receiveDamage(randomVik.strength);
-        if (randomSax.health <= 0){
-            this.saxonArmy.splice(saxIndex, 1)
-            return 'A Saxon has died in combat'
-        }
-        };
-    };
-//     showStatus(){
-//         if this 
-//     };
 // }
->>>>>>> 2bc1f559cf42a278e01dc6861d4b5633ae77cabe
