@@ -40,7 +40,7 @@ class Saxon extends Soldier {
     receiveDamage(incomingDamage) {
         super.receiveDamage(incomingDamage);
         if (this.health > 0) {
-            return `A saxon has received ${incomingDamage} points of damage`;
+            return `A Saxon has received ${incomingDamage} points of damage`;
         } else {
             return 'A Saxon has died in combat';
         }
@@ -48,4 +48,10 @@ class Saxon extends Soldier {
 }
 
 // War
-class War {}
+class War {
+    addViking(){};
+    addSaxon(){};
+    vikingAttack(){};
+    saxonAttack(){};
+    showStatus(){};
+}
