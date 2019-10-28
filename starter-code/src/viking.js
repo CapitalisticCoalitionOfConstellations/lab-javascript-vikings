@@ -24,11 +24,9 @@ class Viking extends Soldier {
     receiveDamage(incomingDamage) {
         super.receiveDamage(incomingDamage);
         if (this.health > 0) {
-            console.log(
-                `${this.name} has received ${incomingDamage} points of damage`,
-            );
+            return `${this.name} has received ${incomingDamage} points of damage`;
         } else {
-            console.log(`${this.name} has died in act of combat`);
+            return `${this.name} has died in act of combat`;
         }
     }
 }
