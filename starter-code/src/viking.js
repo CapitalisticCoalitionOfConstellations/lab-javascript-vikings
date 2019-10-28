@@ -24,28 +24,24 @@ class Viking extends Soldier {
     receiveDamage(incomingDamage) {
         super.receiveDamage(incomingDamage);
         if (this.health > 0) {
-            console.log(
-                `${this.name} has received ${incomingDamage} points of damage`,
-            );
+            return `${this.name} has received ${incomingDamage} points of damage`;
         } else {
-            console.log(`${this.name} has died in act of combat`);
+            return `${this.name} has died in act of combat`;
         }
     }
 }
 
 // Saxon
 class Saxon extends Soldier {
-    receiveDamage(incomingDamage){
+    receiveDamage(incomingDamage) {
         super.receiveDamage(incomingDamage);
-       if (this.health > 0){
-         return `A saxon has received ${incomingDamage} points of damage`
-       }
-       else {
-         return "A Saxon has died in combat"
-       }  
-     }
-     }
-
+        if (this.health > 0) {
+            return `A saxon has received ${incomingDamage} points of damage`;
+        } else {
+            return 'A Saxon has died in combat';
+        }
+    }
+}
 
 // War
 class War {}
